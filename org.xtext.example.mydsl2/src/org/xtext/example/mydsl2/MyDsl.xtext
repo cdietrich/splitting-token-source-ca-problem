@@ -1,0 +1,17 @@
+grammar org.xtext.example.mydsl2.MyDsl with org.eclipse.xtext.common.Terminals
+
+generate myDsl "http://www.xtext.org/example/mydsl2/MyDsl"
+
+Model:
+	defs+=Def*
+	uses+=Use*;
+	
+Def:
+	"def" name=ID
+;
+
+Use:
+	{Use}"use" defRefs+=DefRef*
+;
+
+DefRef:def=[Def];
